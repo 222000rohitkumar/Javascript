@@ -1,0 +1,45 @@
+const characterPool =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+
+let rawAccountName = "Wolverine";
+
+// Remove spaces and convert to lowercase
+let cleaned = rawAccountName.trim().toLowerCase();
+
+// Capitalize first letter
+let cleanAccountName =
+  cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+
+console.log(cleanAccountName);
+
+// Generate a random character
+let randomIndex = Math.floor(Math.random() * characterPool.length);
+let randomCharacter = characterPool.charAt(randomIndex);
+
+console.log(randomCharacter);
+console.log(randomIndex);
+
+// Generate password
+let finalPassword = "";
+
+for (let i = 0; i < 8; i++) {
+  let randomIndex = Math.floor(Math.random() * characterPool.length);
+  finalPassword += characterPool[randomIndex];
+}
+
+// Create and format the date
+let generationDate = new Date();
+let formattedDate = generationDate.toLocaleString();
+
+// Display the result
+console.log(`
+========================
+PASSWORD GENERATED
+========================
+
+Account: ${cleanAccountName}
+Password: ${finalPassword}
+Generated: ${formattedDate}
+
+========================
+`);
